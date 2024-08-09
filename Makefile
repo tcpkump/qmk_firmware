@@ -465,3 +465,7 @@ distclean_userspace: clean
 	rm -f $(QMK_USERSPACE)/*.bin $(QMK_USERSPACE)/*.hex $(QMK_USERSPACE)/*.uf2
 	echo 'done.'
 endif
+
+.PHONY: sofle
+sofle:
+	$(QMK_BIN) compile -kb sofle_choc -km tcpkump -e CONVERT_TO=elite_pi
