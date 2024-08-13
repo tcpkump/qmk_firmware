@@ -6,31 +6,13 @@ enum layers {
   _GAME = 2,
 };
 
-// Tap Dance declarations
-enum {
-    TD_SCLN_COLN,
-    TD_LBRC_LCBR,
-    TD_RBRC_RCBR,
-    TD_LSFT_LPRN,
-    TD_RSFT_RPRN,
-};
-
-// Tap Dance definitions
-tap_dance_action_t tap_dance_actions[] = {
-    [TD_SCLN_COLN] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
-    [TD_LBRC_LCBR] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_LCBR),
-    [TD_RBRC_RCBR] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),
-    [TD_LSFT_LPRN] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_LPRN),
-    [TD_RSFT_RPRN] = ACTION_TAP_DANCE_DOUBLE(KC_RSFT, KC_RPRN),
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
   KC_EQL,           KC_1,       KC_2,       KC_3,             KC_4,    KC_5,                                       KC_6,    KC_7,    KC_8,             KC_9,      KC_0,    KC_MINS,
   KC_TAB,           KC_Q,       KC_W,       KC_F,             KC_P,    KC_B,                                       KC_J,    KC_L,    KC_U,             KC_Y,      KC_QUOT, KC_GRV,
-  KC_BSLS,          KC_A,       KC_R,       KC_S,             KC_T,    KC_G,                                       KC_M,    KC_N,    KC_E,             KC_I,      KC_O,    TD(TD_SCLN_COLN),
-  TD(TD_LSFT_LPRN), KC_Z,       KC_X,       KC_C,             KC_D,    KC_V,    KC_MUTE,           KC_MPLY,        KC_K,    KC_H,    KC_COMM,          KC_DOT,    KC_SLSH, TD(TD_RSFT_RPRN),
-                                _______, TD(TD_LBRC_LCBR), KC_LCMD, LT(_LOWER,KC_BSPC), LCTL_T(KC_ESC),    LCTL_T(KC_ENT), KC_SPC,  KC_LALT, TD(TD_RBRC_RCBR), TT(_LOWER)
+  KC_BSLS,          KC_A,       KC_R,       KC_S,             KC_T,    KC_G,                                       KC_M,    KC_N,    KC_E,             KC_I,      KC_O,    KC_SCLN,
+  KC_LSFT,          KC_Z,       KC_X,       KC_C,             KC_D,    KC_V,    KC_MUTE,           KC_MPLY,        KC_K,    KC_H,    KC_COMM,          KC_DOT,    KC_SLSH, KC_RSFT,
+                                _______,    _______, KC_LCMD, LT(_LOWER,KC_BSPC), LCTL_T(KC_ESC),    LCTL_T(KC_ENT), KC_SPC,  KC_LALT, _______,        MO(_LOWER)
 ),
 [_LOWER] = LAYOUT(
   _______,          KC_F1,      KC_F2,      KC_F3,            KC_F4,   KC_F5,                                      KC_F6,   KC_F7,   KC_F8,            KC_F9,     KC_F10,  _______,
