@@ -492,3 +492,8 @@ pytest:
 .PHONY: format-and-pytest
 format-and-pytest:
 	RUNTIME=docker ./util/docker_cmd.sh bash -lic "$(CONTAINER_PREAMBLE); qmk format-c --core-only -a && qmk format-python -a && qmk pytest"
+
+# Personal targets
+.PHONY: sofle
+sofle:
+	$(QMK_BIN) compile -kb sofle_choc -km tcpkump -e CONVERT_TO=elite_pi
