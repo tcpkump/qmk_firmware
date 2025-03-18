@@ -11,6 +11,19 @@ enum layers {
     FUNC
 };
 
+enum combos {
+  FP_CLN,
+  WF_SCN
+};
+
+const uint16_t PROGMEM fp_combo[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
+
+combo_t key_combos[] = {
+  [FP_CLN] = COMBO(fp_combo, KC_COLN),
+  [WF_SCN] = COMBO(wf_combo, KC_SCLN),
+};
+
 #define LT_BSPC LT(LOWER, KC_BSPC)
 #define LT_SPC  LT(UPPER, KC_SPC)
 #define LT_ENT  LT(FUNC,  KC_ENT)
